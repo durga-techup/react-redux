@@ -3,6 +3,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install --loglevel=error --legacy-peer-deps
 COPY . .
-ENV NODE_OPTIONS="--no-warnings"
 EXPOSE 3000
+ENV NODE_OPTIONS="--no-warnings"
+ENV CHOKIDAR_USEPOLLING=true
 CMD [ "npm", "start"]
